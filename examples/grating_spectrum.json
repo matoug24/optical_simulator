@@ -1,0 +1,50 @@
+{
+  "format": "optics-workbench-v1",
+  "name": "Grating spectral spread",
+  "bench": {
+    "width_mm": 300.0,
+    "depth_mm": 150.0,
+    "height_mm": 100.0
+  },
+  "max_interactions": 48,
+  "elements": [
+    {
+      "id": "laser-1",
+      "type": "laser",
+      "enabled": true,
+      "x_mm": 20,
+      "y_mm": 75,
+      "z_mm": 20,
+      "azimuth_deg": 0.0,
+      "elevation_deg": 0.0,
+      "roll_deg": 0.0,
+      "name": "Laser source",
+      "wavelength_nm": 800.0,
+      "bandwidth_nm": 20,
+      "power_mw": 10.0,
+      "beam_radius_mm": 0.45,
+      "divergence_mrad": 0.0,
+      "rays": 33,
+      "wavelength_samples": 7
+    },
+    {
+      "id": "grating-1",
+      "type": "grating",
+      "enabled": true,
+      "x_mm": 150,
+      "y_mm": 75,
+      "z_mm": 20,
+      "azimuth_deg": -45,
+      "elevation_deg": 0.0,
+      "roll_deg": 0.0,
+      "name": "D \u00b7 diffraction grating",
+      "width_mm": 30.0,
+      "height_mm": 30.0,
+      "clear_width_mm": 27.0,
+      "clear_height_mm": 27.0,
+      "lines_per_mm": 1400.0,
+      "order": -1,
+      "efficiency": 0.9
+    }
+  ]
+}

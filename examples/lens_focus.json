@@ -1,0 +1,129 @@
+{
+  "format": "optics-workbench-v1",
+  "name": "Dispersive singlet focus example",
+  "bench": {
+    "width_mm": 300.0,
+    "depth_mm": 150.0,
+    "height_mm": 100.0
+  },
+  "max_interactions": 48,
+  "elements": [
+    {
+      "id": "s",
+      "type": "laser",
+      "enabled": true,
+      "x_mm": 20,
+      "y_mm": 75,
+      "z_mm": 20.0,
+      "azimuth_deg": 0.0,
+      "elevation_deg": 0.0,
+      "roll_deg": 0.0,
+      "name": "Illustrative 780 nm source",
+      "wavelength_nm": 780,
+      "bandwidth_nm": 10,
+      "power_mw": 10.0,
+      "beam_radius_mm": 2,
+      "divergence_mrad": 0.0,
+      "rays": 129,
+      "wavelength_samples": 5,
+      "wavefront_radius_mm": 0.0,
+      "polarization_angle_deg": 0.0,
+      "ellipticity_deg": 0.0,
+      "source_gdd_fs2": 0.0,
+      "source_tod_fs3": 0.0,
+      "pulse_profile": "gaussian"
+    },
+    {
+      "id": "l",
+      "type": "lens",
+      "enabled": true,
+      "x_mm": 100,
+      "y_mm": 75,
+      "z_mm": 20.0,
+      "azimuth_deg": 0.0,
+      "elevation_deg": 0.0,
+      "roll_deg": 0.0,
+      "name": "Example dispersive singlet",
+      "model": "prescription",
+      "diameter_mm": 25.0,
+      "clear_diameter_mm": 24.0,
+      "focal_length_mm": 75.0,
+      "transmission": 0.995,
+      "flipped": false,
+      "r1_mm": 43.96,
+      "r2_mm": -42.9,
+      "r3_mm": -392.21,
+      "t1_mm": 6.0,
+      "t2_mm": 4.0,
+      "glass1": "N-LAK22",
+      "glass2": "N-SF6",
+      "n1": 1.65,
+      "n2": 1.8,
+      "surfaces": [
+        {
+          "radius_mm": 50.0,
+          "thickness_mm": 5.0,
+          "clear_diameter_mm": 24.0,
+          "material_after": {
+            "id": "N-LAK22",
+            "name": "SCHOTT N-LAK22",
+            "model": "sellmeier",
+            "B": [
+              1.14229781,
+              0.535138441,
+              1.04088385
+            ],
+            "C": [
+              0.00585778594,
+              0.0198546147,
+              100.834017
+            ],
+            "min_nm": 365.0,
+            "max_nm": 2500.0,
+            "reference": "SCHOTT nominal Sellmeier coefficients; wavelength in micrometres. Confirm range and temperature for precision work.",
+            "builtin": true
+          }
+        },
+        {
+          "radius_mm": -50.0,
+          "thickness_mm": 0.0,
+          "clear_diameter_mm": 24.0,
+          "material_after": {
+            "id": "air",
+            "name": "Air \u00b7 n = 1 approximation",
+            "model": "constant",
+            "n": 1.0,
+            "min_nm": 300.0,
+            "max_nm": 2500.0,
+            "reference": "Ambient index approximated as 1.",
+            "builtin": true
+          }
+        }
+      ],
+      "polarization_model": "scalar",
+      "s_factor": 1.0,
+      "p_factor": 1.0,
+      "s_phase_deg": 0.0,
+      "p_phase_deg": 0.0,
+      "coating_gdd_fs2": 0.0,
+      "coating_tod_fs3": 0.0,
+      "bare_fresnel": false
+    }
+  ],
+  "analysis": {
+    "field_grid": 256,
+    "field_span_mm": 4.0,
+    "field_wavelength_nm": 780.0,
+    "field_after": false,
+    "pulse_samples": 129,
+    "pulse_use_field": false,
+    "pulse_after": true,
+    "pulse_u_mm": 0.0,
+    "pulse_v_mm": 0.0,
+    "extra_gdd_fs2": 0.0,
+    "extra_tod_fs3": 0.0,
+    "fibre_length_m": 0.0,
+    "fibre_beta2_fs2_m": 0.0,
+    "fibre_beta3_fs3_m": 0.0
+  }
+}

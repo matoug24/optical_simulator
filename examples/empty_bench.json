@@ -1,0 +1,11 @@
+{
+  "format": "optics-workbench-v1",
+  "name": "Empty optical bench",
+  "bench": {
+    "width_mm": 300.0,
+    "depth_mm": 150.0,
+    "height_mm": 100.0
+  },
+  "max_interactions": 48,
+  "elements": []
+}

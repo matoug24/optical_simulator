@@ -1,0 +1,72 @@
+/* View tools and physical lens details. Loaded after the existing styles. */
+.lens-insight-canvas{display:block;width:100%;height:220px;background:#0c1822;border:1px solid var(--border);border-radius:6px;margin:10px 0}
+.lens-surface-table{max-width:100%;overflow-x:auto;margin-top:12px}
+.lens-surface-table table{border-collapse:collapse;width:100%;font-size:10px;line-height:1.5}
+.lens-surface-table th,.lens-surface-table td{padding:7px 5px;text-align:left;border-bottom:1px solid #2b4353;vertical-align:top}
+.lens-surface-table th{font-weight:500;color:var(--muted)}
+.lens-surface-table td{overflow-wrap:anywhere}
+.pointer-controls{display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:10px 18px;background:#132732;border-bottom:1px solid #35586a}
+.pointer-controls strong{font-size:11px;color:#b3e6ff;font-weight:500}
+.pointer-controls label{width:140px}.pointer-controls label>span{float:none}
+.pointer-controls .helper{margin:0;flex:1 1 160px}
+.pointer-readout{display:block;height:54px;min-height:54px;overflow:auto;padding:9px 18px;color:#beeaff;background:#102330;font-size:11px;line-height:1.6;font-variant-numeric:tabular-nums}
+#pointer-toggle{font-size:11px;white-space:nowrap}
+#pointer-toggle.active{color:#b3e6ff;border-color:#80c7ed;background:#244453}
+/* Each desktop pane owns its scroll position. The canvas does not move when a sidebar scrolls. */
+@media(min-width:700px){
+ html{height:100%}
+ body{height:100vh;height:100dvh;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+ .app-header,.app-tabs{flex:none}
+ #bench-view{flex:1 1 0;min-height:0;height:auto;overflow:hidden;display:grid;grid-template-columns:clamp(150px,16vw,260px) minmax(300px,1fr) clamp(210px,19vw,330px);grid-template-rows:minmax(0,1fr)}
+ #bench-view>.left-panel,#bench-view>.inspector{min-height:0;max-height:100%;height:100%;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-gutter:stable;grid-column:auto;grid-row:auto;scrollbar-width:thin;scrollbar-color:#4a6879 #131c28}
+ #bench-view>.inspector{border-left:1px solid var(--border);border-top:0}
+ #inspector{max-width:none}
+ #bench-view>.workspace{display:flex;flex-direction:column;min-height:0;overflow:hidden}
+ .workspace-tabs,#analysis-selection{flex:none}
+ .workspace .analysis-pane{flex:1 1 0;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+ .workspace #panel-layout{display:flex;flex-direction:column;overflow:auto;scrollbar-gutter:auto}
+ #panel-layout>.workspace-toolbar,#panel-layout>.pointer-controls,#panel-layout>.pointer-readout,#panel-layout>.ruler-controls,#panel-layout>.ruler-readout,#panel-layout>.metrics{flex:none}
+ #panel-layout>.workspace-toolbar{min-height:74px;padding:9px 15px;gap:8px}
+ #panel-layout .canvas-wrap{height:auto;min-height:175px;flex:1 1 175px}
+ #panel-layout .wavelength-legend{flex:none;max-height:70px;overflow:auto;padding:7px 16px}
+ #panel-layout .metrics{padding:10px 5px}
+ #panel-layout .metrics strong{font-size:19px;margin-top:5px}
+ #panel-layout .metrics>div{padding:0 12px}
+ #products-view{flex:1 1 0;min-height:0;overflow-y:auto;width:100%;overscroll-behavior:contain}
+ .workspace .canvas-top,.workspace .canvas-bottom{left:16px;right:16px}
+ .workspace-tabs{padding:9px 12px}
+ .workspace-tabs button{font-size:11px;padding:7px 9px}
+}
+@media(min-width:700px) and (max-width:1000px){
+ #bench-view>.left-panel section{padding:15px 10px}
+ #bench-view>.inspector{padding:18px 12px}
+ .workspace-toolbar #layout-name{width:160px}
+ .workspace-tabs button{padding:6px;font-size:10px}
+}
+@media(max-width:699px){
+ .lens-insight-canvas{max-width:620px}
+ .pointer-controls{padding:10px 12px;gap:8px}
+ .pointer-readout{padding:9px 12px}
+}
+
+/* Component protection controls remain usable outside the disabled editor. */
+.element-lock-row{display:flex;align-items:center;gap:5px;margin-bottom:5px}
+.element-lock-row .element-row{flex:1;min-width:0;margin-bottom:0}
+.component-lock{display:flex;align-items:center;justify-content:space-between;gap:6px;cursor:pointer;color:var(--muted);font-size:11px;flex:none}
+.component-lock input{margin:0;width:auto;cursor:pointer}
+.element-lock-row>.component-lock{flex-direction:column;font-size:10px;padding:5px 2px}
+.element-lock-row.locked .element-row{border-color:#9a814d}
+.inspector-lock{padding:10px 0;border-bottom:1px solid var(--border);margin-bottom:14px;color:var(--text)}
+.component-controls{border:0;padding:0;margin:0;min-width:0}
+.component-controls:disabled input,.component-controls:disabled select{opacity:.55;cursor:not-allowed}
+
+#surface-canvas[hidden],#surface-readout[hidden]{display:none}
+
+#surface-visits{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+#surface-visits .helper{flex-basis:100%;margin:0}
+.surface-visit-key{font-size:12px;border:1px solid currentColor;padding:4px 8px;border-radius:5px}
+
+#visualize{white-space:nowrap;font-size:11px}
+#visualize.active{background:#244453;border-color:#80c7ed;color:#b3e6ff}
+.visualization-status{flex:none;padding:8px 16px;background:#152c38;color:#b3e6ff;font-size:11px}
+.visualization-status[hidden]{display:none}
